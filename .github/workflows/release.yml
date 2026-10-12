@@ -1,0 +1,23 @@
+name: Convert PowerShell to EXE
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install ps2exe
+        run: |
+          Install-Module -Name ps2exe -Force
+
+      - name: Convert PowerShell script
+        run: |
+          ps2exe .\your-script.ps1 .\your-script.exe
