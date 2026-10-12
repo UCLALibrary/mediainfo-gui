@@ -1,4 +1,4 @@
-# MediaInfo Sidecar Generator - 2.2.1 (Flexible DPX Frame Numbering)
+# MediaInfo Sidecar Generator
 # -------------------------------------------------------------------
 # 1. DISCOVERY: Robocopy (Bypasses Enumeration limits)
 # 2. PARSING: String Manipulation (Bypasses Path class limits)
@@ -7,7 +7,7 @@
 # 5. STATUS: Reports "Done with Errors" if issues occurred
 # 6. GUI: Fixed truncated checkbox labels
 # -------------------------------------------------------------------
-
+$VERSION = "v2.2.2"
 $SecondaryJsonDir = "C:\NDM SIdecars"
 
 # Ensure WinForms runs in STA
@@ -218,7 +218,7 @@ if (-not (Test-Path $AppDir)) { New-Item -ItemType Directory -Path $AppDir | Out
 $DefaultMasks = @(
   '*.3g2','*.3gp','*.aac','*.aiff','*.aif','*.amv','*.asf','*.avi','*.dpx','*.f4v','*.flac','*.flv','*.gifv','*.m2ts',
   '*.m4a','*.m4v','*.mkv','*.mng','*.mov','*.mp3','*.mp4','*.mpg','*.mpeg','*.mts','*.mxf','*.nsv','*.ogg','*.rm',
-  '*.rmvb','*.roq','*.svi','*.ts','*.viv','*.vob','*.vtt','*.wav','*.webm','*.wma','*.wmv','*.yuv'
+  '*.rmvb','*.roq','*.srt','*.svi','*.ts','*.viv','*.vob','*.vtt','*.wav','*.webm','*.wma','*.wmv','*.yuv'
 )
 
 function Load-Masks {
@@ -247,7 +247,7 @@ function Save-Masks([string[]]$m) {
 
 # GUI Layout ---------------------------------------------------------
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "MediaInfo Sidecar Generator - v2.2.1"; 
+$form.Text = "MediaInfo Sidecar Generator - " + $VERSION; 
 $form.Size = '870,720'; 
 $form.BackColor = $ColorBackground; 
 $form.StartPosition = 'CenterScreen'; 
